@@ -33,5 +33,29 @@ class _GetchWindows:
         import msvcrt
         return msvcrt.getch()
 
-
 getch = _Getch()
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __iter__(self):
+        return iter([self.x, self.y])
+
+    def __eq__(self, o):
+        return self.x == o.x and self.y == o.y
+
+    def __hash__(self):
+        return 10723 * self.x.__hash__() + self.y.__hash__()
+
+    def __str__(self):
+        return str([self.x, self.y])
+
+
+
+class Key_input:
+    def __init__(self, direction):
+        self.key = direction 
+
+
